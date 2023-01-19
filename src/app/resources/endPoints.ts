@@ -3,7 +3,6 @@ const ENDPOINTS: any = {
     ContactServices: {
       GET_CITY_AND_STATE: '/api/Contact/GetCytyAndState',
       POST_CONTACT: '/api/Contact/SendEmail'
-    }
-    
+    } 
 }
 export { ENDPOINTS }

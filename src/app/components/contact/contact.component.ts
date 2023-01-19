@@ -8,7 +8,6 @@ import Swal from 'sweetalert2';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import {MY_DATE_FORMATS} from '../../resources/my-date-formats';
 import * as _moment from 'moment';
-// tslint:disable-next-line:no-duplicate-imports
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 const moment =  _moment;
 
@@ -18,7 +17,6 @@ const moment =  _moment;
   styleUrls: ['./contact.component.css'],
   providers: [
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
-
     {provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS},
   ]
 })
@@ -32,7 +30,6 @@ export class ContactComponent implements OnInit {
   myControl = new FormControl('');
   date = new FormControl(moment());
 
-  
   constructor(private fb: FormBuilder,private matDialog:MatDialog, private _contactService:ContactService) 
   {
     this.contact = new ContactModel();
@@ -52,8 +49,6 @@ export class ContactComponent implements OnInit {
   }
   
   GetDivisions() {
-  
-    
     this._contactService.GetCityState()
       .subscribe(
         (resp:any) => {
@@ -93,7 +88,6 @@ export class ContactComponent implements OnInit {
       this._contactService.SendMessage(this.contact)
       .subscribe((data:any) =>{
         this.resetForms();
-        
           Swal.fire(
             'Creado!',
               'Contacto creado exitosamente.',
@@ -102,11 +96,7 @@ export class ContactComponent implements OnInit {
       });
     }
     else{
-     let dialogRef = this.matDialog.open(DialogComponent,
-      {
-        // data:10
-      });
-
+     let dialogRef = this.matDialog.open(DialogComponent,{});
     }
   }
 
@@ -121,7 +111,6 @@ export class ContactComponent implements OnInit {
 
   resetForms() {
     this.formContact?.reset();
-    
   }
 
   onKey(search:string) { 
@@ -133,11 +122,10 @@ export class ContactComponent implements OnInit {
       this.selectedStates = [];
     }
   }
-    
-    search(value:string) { 
-      
-      var result = this.itemSelect.filter((option: any) => option.name.toLowerCase().includes(value.toLowerCase()));
-      return result;
-    }
+  
+  search(value:string) {  
+    var result = this.itemSelect.filter((option: any) => option.name.toLowerCase().includes(value.toLowerCase()));
+    return result;
+  }
 
 }

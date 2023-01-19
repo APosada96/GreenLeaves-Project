@@ -47,7 +47,6 @@
                       <mat-datepicker #dp></mat-datepicker>
                     </mat-form-field>
                       <small *ngIf="DateNotValid" class="text-danger">El campo Fecha es obligatorio</small>          
-
             </div>
         </div>
        
@@ -70,21 +69,11 @@
                       </mat-option>
                     </mat-autocomplete>
                   </mat-form-field>
-                <!-- <mat-form-field>
-                    <mat-label> Filtro</mat-label>
-                    <mat-select>
-                    <input formControlName="Item" [class.is-invalid]="CityAndStateNotValid" class="form-control"  (keyup)="onKey($any($event.target).value)">
-                      <mat-option >Seleccionar...</mat-option>
-                    <mat-option 
-                             *ngFor="let state of selectedStates" [value]="state.id">{{state.name}}</mat-option>
-                    </mat-select>
-                  </mat-form-field> -->
                 <small *ngIf="CityAndStateNotValid" class="text-danger">El campo Ciudad y Estado es obligatorio</small>          
             </div>
         </div>
         
     <button  mat-stroked-button color="primary" type="submit">Enviar</button>
-    
     </form>
     <br>
     <br>
