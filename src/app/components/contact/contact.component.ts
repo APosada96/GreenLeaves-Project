@@ -101,7 +101,6 @@ export class ContactComponent implements OnInit {
   }
 
   private getData() {
-    debugger;
       this.contact.name = this.formContact?.get('Name')?.value;
       this.contact.email = this.formContact?.get('Email')?.value;
       this.contact.date = this.formContact?.get('Date')?.value;
